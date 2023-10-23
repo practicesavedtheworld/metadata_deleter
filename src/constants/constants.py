@@ -20,4 +20,3 @@ COMMANDS = {
     ("change", "-c"): "change",
     ("delete", "-d"): "delete",
 }
-print("help" in COMMANDS.keys())
