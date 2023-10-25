@@ -48,10 +48,9 @@ class CommandHandler:
                         print_colorful("Select field and set the field value\n"
                                        "Change carefully\n"
                                        "Example: field value\n", "blue")
-
-                        print_colorful("Here is metadata with fields", "blue")
                         self.file_viewer.detailed_metadata_info()
                         change_command = sys.stdin.readline().strip()
+
                         try:
                             field, value = change_command.split(" ", 1)
                             self.file.change_metadata_field(field.strip(), value.strip())
@@ -59,7 +58,10 @@ class CommandHandler:
                             # TODO log that
                             print_colorful("NOT ENOUGH PARAMETERS. IT SHOULD BE 2", "red")
                             break
-
+                    case "metadata":
+                        self.file_viewer.metadata_info()
+                    case "metadata-detailed":
+                        self.file_viewer.detailed_metadata_info()
                     case "save":
                         self.file.save_file()
                     case _:
