@@ -18,7 +18,7 @@ class FileViewer:
         """
 
         detailed_metadata = "\n".join([
-            f"{k}    {v}"
+            f"{k}  -->  {v}"
             for k, v in
             self.file.present_metadata_dict().items()
         ])
