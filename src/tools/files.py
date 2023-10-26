@@ -2,6 +2,7 @@ import os
 import sys
 from pathlib import Path
 
+import docx
 from PIL import Image, UnidentifiedImageError
 
 from src.constants import NOT_IMAGE
@@ -20,6 +21,20 @@ def get_image_format(path: str) -> str | NOT_IMAGE:
         return img.format
     except UnidentifiedImageError:
         return NOT_IMAGE
+
+
+def is_docx(path: str) -> bool:
+    """Basic checking docx file.
+    Return True if it is docx else False."""
+    _, fmt = path.rsplit(".", 1)
+    if fmt.startswith("doc"):
+        try:
+            docx.Document(path)
+            return True
+        except:  # TODO find exc
+            # TODO log that
+            pass
+    return False
 
 
 def get_unique_filename(name: str, fmt: str) -> str:
