@@ -37,7 +37,6 @@ class CommandHandler:
                 command == cmd[0],
                 command == cmd[1],
             ]):
-                # if command in " ".join(cmd):
                 match COMMANDS.get(cmd):
                     case "help":
                         self.available_commands()
@@ -51,13 +50,14 @@ class CommandHandler:
                         self.file_viewer.detailed_metadata_info()
                         change_command = sys.stdin.readline().strip()
 
+                        # Change command requires two params.
+                        # If it's not you'll be noticed.
                         try:
                             field, value = change_command.split(" ", 1)
                             self.file.change_metadata_field(field.strip(), value.strip())
                         except ValueError:
                             # TODO log that
                             print_colorful("NOT ENOUGH PARAMETERS. IT SHOULD BE 2", "red")
-                            break
                     case "metadata":
                         self.file_viewer.metadata_info()
                     case "metadata-detailed":
@@ -67,3 +67,7 @@ class CommandHandler:
                     case _:
                         # This should never be executed
                         unacceptable_command()
+                break
+        else:
+            print_colorful(f"Command -> '{command}' does not exist. "
+                           "Type help for more commands", "red")
