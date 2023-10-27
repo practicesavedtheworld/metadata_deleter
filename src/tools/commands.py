@@ -30,15 +30,26 @@ class CommandHandler:
         print_colorful("Here is all available commands\n", "blue")
         print_colorful(commands, "green")
 
+    @staticmethod
+    def unavailable_command(command):
+        """Tells that this command isn't available or
+        does not exist"""
+
+        print_colorful(
+            f"Command -> '{command}' does not exist. "
+            "Type help for more commands",
+            "red",
+        )
+
     def execute_command(self, command: str):
         """Execute user command."""
 
         for cmd in COMMANDS.keys():
             if any(
-                [
-                    command == cmd[0],
-                    command == cmd[1],
-                ]
+                    [
+                        command == cmd[0],
+                        command == cmd[1],
+                    ]
             ):
                 match COMMANDS.get(cmd):
                     case "help":
@@ -84,8 +95,4 @@ class CommandHandler:
                         unacceptable_command()
                 break
         else:
-            print_colorful(
-                f"Command -> '{command}' does not exist. "
-                "Type help for more commands",
-                "red",
-            )
+            self.unavailable_command(command=command)
