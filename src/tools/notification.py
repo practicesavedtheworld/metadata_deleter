@@ -1,5 +1,5 @@
-from typing import ParamSpec, TypeVar, Callable
 import functools
+from typing import Callable, ParamSpec, TypeVar
 
 from src.tools.print_colorful import print_colorful
 

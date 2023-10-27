@@ -8,10 +8,9 @@ def print_colorful(text: str, color: str) -> None:
         "magenta": "\033[35m",
         "cyan": "\033[36m",
         "white": "\033[37m",
-        "reset": "\033[0m"
+        "reset": "\033[0m",
     }
     if color in colors:
         print(f"{colors[color]}{text}{colors['reset']}")
     else:
         print(text)
-

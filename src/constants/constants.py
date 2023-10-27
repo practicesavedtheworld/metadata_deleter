@@ -1,20 +1,20 @@
 from typing import TypeAlias
 
 IMAGE_TYPES = (
-    'rgb',
-    'gif',
-    'pbm',
-    'pgm',
-    'ppm',
-    'tiff',
-    'rast',
-    'xbm',
-    'jpeg',
-    'bmp',
-    'png',
-    'webp',
-    'exr',
-    'svg',
+    "rgb",
+    "gif",
+    "pbm",
+    "pgm",
+    "ppm",
+    "tiff",
+    "rast",
+    "xbm",
+    "jpeg",
+    "bmp",
+    "png",
+    "webp",
+    "exr",
+    "svg",
 )
 
 COMMANDS = {

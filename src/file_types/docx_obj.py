@@ -1,7 +1,8 @@
 import dataclasses
 import datetime
-import docx
 import shutil
+
+import docx
 
 from src.file_types.base_file_object import BaseFileObject
 from src.tools.files import get_filename, get_unique_filename
@@ -16,9 +17,7 @@ class DocXObject(BaseFileObject):
         self.docx_file = docx.Document(self.file)
         self.docx_props = dir(self.docx_file.core_properties)
         self.metadata_list = [
-            prop
-            for prop in self.docx_props
-            if not prop.startswith("_")
+            prop for prop in self.docx_props if not prop.startswith("_")
         ]
         self.metadata_dict = {
             prop: getattr(self.docx_file.core_properties, prop)

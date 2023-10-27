@@ -2,7 +2,7 @@ import os
 import sys
 from pathlib import Path
 
-import docx
+import docx  # type: ignore
 from PIL import Image, UnidentifiedImageError
 
 from src.constants import NOT_IMAGE
@@ -20,7 +20,7 @@ def get_image_format(path: str) -> str | NOT_IMAGE:
         img = Image.open(path)
         return img.format
     except UnidentifiedImageError:
-        return NOT_IMAGE
+        return NOT_IMAGE  # type: ignore
 
 
 def is_docx(path: str) -> bool:
@@ -31,7 +31,7 @@ def is_docx(path: str) -> bool:
         try:
             docx.Document(path)
             return True
-        except:  # TODO find exc
+        except Exception as doc_err:  # TODO find exc
             # TODO log that
             pass
     return False

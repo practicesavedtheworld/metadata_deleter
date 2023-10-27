@@ -3,7 +3,7 @@ import dataclasses
 from exif import Image
 
 from src.file_types.base_file_object import BaseFileObject
-from src.tools.files import get_unique_filename, get_filename
+from src.tools.files import get_filename, get_unique_filename
 from src.tools.notification import notify
 
 
@@ -45,5 +45,5 @@ class ImageObject(BaseFileObject, Image):
 
         name, fmt = get_filename(self.file).rsplit(".")
         filename = get_unique_filename(name, fmt)
-        with open(filename, 'wb') as new_image_file:
+        with open(filename, "wb") as new_image_file:
             new_image_file.write(self.image_file.get_file())

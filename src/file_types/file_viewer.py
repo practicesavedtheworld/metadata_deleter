@@ -17,11 +17,9 @@ class FileViewer:
         ...             ...
         """
 
-        detailed_metadata = "\n".join([
-            f"{k}  -->  {v}"
-            for k, v in
-            self.file.present_metadata_dict().items()
-        ])
+        detailed_metadata = "\n".join(
+            [f"{k}  -->  {v}" for k, v in self.file.present_metadata_dict().items()]
+        )
         print_colorful("Here is metadata with fields", "blue")
         print_colorful(detailed_metadata or self.no_metadata_msg, "green")
 
