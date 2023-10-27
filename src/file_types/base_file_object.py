@@ -23,6 +23,5 @@ class BaseFileObject(ABC):
         ...
 
     @abstractmethod
-
     def save_file(self) -> None:
         ...
