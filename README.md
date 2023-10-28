@@ -3,6 +3,43 @@
 Simple console app for simple users :sunglasses:
 
 
+## Run as a python script
+
+```sh
+git clone https://github.com/practicesavedtheworld/metadata_deleter.git
+```
+```sh
+cd metadata_deleter
+```
+```sh
+poetry install
+```
+```sh
+python3 metadata_deleter
+```
+
+## Restrictions
+
+
+At this moment supports formats:
+
+
+    "rgb",
+    "gif",
+    "pbm",
+    "pgm",
+    "ppm",
+    "tiff",
+    "rast",
+    "xbm",
+    "jpeg",
+    "bmp",
+    "png",
+    "webp",
+    "exr",
+    "svg",
+    "docx"
+
 ## Which commands is available now ?
 
 |  COMMAND | ACTION |
